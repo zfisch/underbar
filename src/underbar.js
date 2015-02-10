@@ -100,7 +100,7 @@
   _.uniq = function(array) {
     var newArr = [];
     _.each(array, function(item){
-      if(newArr.indexOf(item) == -1){
+      if(_.indexOf(newArr, item) < 0){
         newArr.push(item);
       }
     });
