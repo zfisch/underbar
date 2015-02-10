@@ -100,17 +100,6 @@
     return _.filter(collection, rejectTest);
   };
 
-
-  //   var filteredArr = _.filter(collection, test);
-  //   var rejects = [];
-  //   _.each(collection, function(item){
-  //     if (_.indexOf(filteredArr, item) < 0){
-  //       rejects.push(item);
-  //     }
-  //   });
-  //   return rejects;
-  // };
-
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
     var newArr = [];
