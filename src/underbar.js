@@ -207,6 +207,14 @@
   // provided, provide a default one
   _.some = function(collection, iterator) {
     // TIP: There's a very clever way to re-use every() here.
+    if(!iterator){
+      iterator = _.identity;
+    }
+    if(_.filter(collection, iterator).length > 0){
+      return true;
+    } else {
+      return false;
+    }
   };
 
 
