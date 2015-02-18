@@ -298,8 +298,25 @@
   // _.memoize should return a function that, when called, will check if it has
   // already computed the result for the given argument and return that value
   // instead if possible.
+
+
   _.memoize = function(func) {
+    var computed = {};
+    var result;
+
+    return function() {
+      var args = Array.prototype.slice.call(arguments);
+      if (args in computed){
+        console.log('found ' + args + " in computed.")
+        result = computed[args];
+      } else {
+        result = func.apply(this, arguments);
+        computed[args] = result
+      }
+      return result;
+    };
   };
+  
 
   // Delays a function for the given number of milliseconds, and then calls
   // it with the arguments supplied.
