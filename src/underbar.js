@@ -307,7 +307,6 @@
     return function() {
       var args = Array.prototype.slice.call(arguments);
       if (args in computed){
-        console.log('found ' + args + " in computed.")
         result = computed[args];
       } else {
         result = func.apply(this, arguments);
