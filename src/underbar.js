@@ -205,17 +205,15 @@
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
+
   _.some = function(collection, iterator) {
-    // TIP: There's a very clever way to re-use every() here.
-    if(!iterator){
-      iterator = _.identity;
+    if (!iterator){
+      var iterator = _.identity;
     }
-    if(_.filter(collection, iterator).length > 0){
-      return true;
-    } else {
-      return false;
-    }
-  };
+    return !_.every(collection, function(item){
+      return !iterator(item);
+    });
+  }
 
 
   /**
